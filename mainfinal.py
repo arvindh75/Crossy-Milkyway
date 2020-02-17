@@ -40,7 +40,7 @@ p.display.set_caption(gamecaption)
 player1 = p.image.load(player1img)
 player2 = p.image.load(player2img)
 bg = p.image.load(bgimg)
-asteroid = movingasteroid(0, 100, 7, 'm1')
+asteroid = movingasteroid(0, 100, 7, 'm1')  # Creates instance of Asteroid
 asteroid1 = movingasteroid(5, 250, 8, 'm2')
 asteroid2 = movingasteroid(-10, 400, 10, 'm3')
 asteroid3 = movingasteroid(-5, 600, 3, 'm4')
@@ -142,7 +142,7 @@ def elements(player1time, player2time):
         window.blit(player1, (x, y))
     elif activePlayer == 2:
         window.blit(player2, (xp2, yp2))
-    scorecalc()
+    scorecalc()  # Calculates the score
     collision(player1time, player2time)
     if activePlayer == 1:
         asteroid.move(800, -5, extraspeed1)
@@ -168,7 +168,7 @@ countdown = p.time.get_ticks()
 while runmenu:  # Runs the menu until the player starts the game
     text1 = p.font.Font(menufont, 30)
     text2 = p.font.Font(titlefont, 30)
-    window.blit(bg, (0, 0))
+    window.blit(bg, (0, 0))  # Displays the Background image
     textsurface2 = text2.render(gamecaption, True, (255, 255, 255))
     window.blit(textsurface2, (0, 150))
     textsurface2 = text1.render(menul1, True, (255, 255, 255))
@@ -199,23 +199,23 @@ while run:  # Runs the main game
         if a.type == p.QUIT:
             run = False
     arrow = p.key.get_pressed()
-    if arrow[p.K_ESCAPE]:
+    if arrow[p.K_ESCAPE]:  # Quits the game if ESC is pressed
         run = False
     if activePlayer == 1:
-        if arrow[p.K_LEFT]:
+        if arrow[p.K_LEFT]:  # Left Movement
             if x - speed >= 0:
                 x -= speed
-        if arrow[p.K_RIGHT]:
+        if arrow[p.K_RIGHT]:  # Right Movement
             if x + speed <= size - w:
                 x += speed
-        if arrow[p.K_UP]:
+        if arrow[p.K_UP]:  # Upward Movement
             if y - speed >= 0:
                 y -= speed
-        if arrow[p.K_DOWN]:
+        if arrow[p.K_DOWN]:  # Downward Movement
             if y + speed <= sizey - h:
                 y += speed
 
-    if activePlayer == 2:
+    if activePlayer == 2:  # Movement for Player 2
         if arrow[p.K_a]:
             if xp2 - speed >= 0:
                 xp2 -= speed
@@ -268,17 +268,17 @@ while run:  # Runs the main game
         countdown = p.time.get_ticks()
         if player1time + count1 * 0.25 > player2time + count2 * 0.25:
             print(p2fwin)
-            extraspeed2 += 2
+            extraspeed2 += 2  # Increases the speed of obstacles for P2
             gameswon2 += 1
         elif player1time + count1 * 0.25 < player2time + count2 * 0.25:
             print(p1fwin)
-            extraspeed1 += 2
+            extraspeed1 += 2  # Increases the speed of obstacles for P1
             gameswon1 += 1
         else:
             print(tie)
-            extraspeed1 += 2
+            extraspeed1 += 2  # Increases the speed of obstacles
             extraspeed2 += 2
-        count1 = 0
+        count1 = 0  # Resets the scores after every round
         count2 = 0
         count = 0
         finalscore1 = 0
@@ -303,24 +303,24 @@ while run:  # Runs the main game
                                                           255))
     textsurface4 = text.render(p1score + str(finalscore1), True, (255,
                                                                   255, 255))
-    window.blit(textsurface4, (0, 150))
+    window.blit(textsurface4, (0, 150))  # Prints the Final Score of P1
     textsurface4 = text.render(p2score + str(finalscore2), True, (255,
                                                                   255, 255))
-    window.blit(textsurface4, (0, 180))
+    window.blit(textsurface4, (0, 180))  # Prints the Final Score of P2
     pen1f = player1time + count1 * penaltyscal
     textsurface4 = text.render(p1pen + str(pen1f), True, (255, 255, 255))
-    window.blit(textsurface4, (0, 30))
+    window.blit(textsurface4, (0, 30))  # Prints the Penalty Score of P1
     pen2f = player2time + count2 * penaltyscal
     textsurface3 = text.render(p2pen + str(pen2f), True, (255, 255, 255))
-    window.blit(textsurface3, (0, 60))
+    window.blit(textsurface3, (0, 60))  # Prints the Penalty Score of P2
     textsurface5 = text.render(p1wins + str(gameswon1), True, (255,
                                                                255, 255))
-    window.blit(textsurface5, (0, 90))
+    window.blit(textsurface5, (0, 90))  # Prints the number of games won
     textsurface6 = text.render(p2wins + str(gameswon2), True, (255,
                                                                255, 255))
     window.blit(textsurface6, (0, 120))
     textsurface7 = text.render(escape, True, (255, 255, 255))
     window.blit(textsurface7, (475, 0))
     window.blit(textsurface, (0, 0))
-    p.display.update()
-p.quit()
+    p.display.update()  # Updates the diaplay with the current elements
+p.quit()  # Quits the game

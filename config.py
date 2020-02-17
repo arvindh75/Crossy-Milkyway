@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+# Declarartion of all Constant values
 music = './music/bensound-deepblue.mp3'
 fontGame = 'Comic Sans MS'
 player1timetext = 'Player 1 Time : '

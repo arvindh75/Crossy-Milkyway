@@ -5,7 +5,7 @@ import pygame as p
 
 class asteroid:
 
-    def __init__(
+    def __init__(  # Constructor
         self,
         x,
         y,
@@ -17,7 +17,7 @@ class asteroid:
         self.speed = speed
         self.num = num
 
-    # Function that checks for collision sati is gey
+    # Function that checks for collision
     def asteroidCollision(self, sx, sy):
         count = 0
         if sx >= self.x and sx <= self.x + 50 and sy >= self.y and sy \

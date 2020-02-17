@@ -9,7 +9,7 @@ class movingasteroid(asteroid):
     asteroid = p.image.load('./img/aestroid_gray_50x50.png')
     window = p.display.set_mode((750, 1000))
 
-    def __init__(
+    def __init__(  # Constructor
         self,
         x,
         y,
@@ -18,7 +18,7 @@ class movingasteroid(asteroid):
     ):
         super().__init__(x, y, speed, num)
 
-    def displayasteroid(self):
+    def displayasteroid(self):  # Displays the asteroid
         self.window.blit(self.asteroid, (self.x, self.y))
 
     def move(  # Moves the asteroid around with the given velocity

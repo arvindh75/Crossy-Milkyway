@@ -69,7 +69,7 @@ def collision(player1time, player2time):
     count += asteroidf4.asteroidCollision(x, y)
     count += asteroidf5.asteroidCollision(x, y)
 
-    count += asteroid.asteroidCollision(x, y)
+    count += asteroid.asteroidCollision(xp2, yp2)
     count += asteroid1.asteroidCollision(xp2, yp2)
     count += asteroid2.asteroidCollision(xp2, yp2)
     count += asteroid3.asteroidCollision(xp2, yp2)

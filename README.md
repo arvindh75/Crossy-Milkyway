@@ -1,5 +1,5 @@
 # Crossy MilkyWay
-Created for ISS Course Assignment.
+Created for ISS Course Assignment(IIIT Hyderabad - 2019).
 
 ## Instructions
 1. Clone the GitLab Repository to your local machine.
